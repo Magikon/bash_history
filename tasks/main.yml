@@ -1,0 +1,13 @@
+---
+- name: Change bashrc for bash_history
+  lineinfile: dest=~/.bashrc
+              line='{{item}}'
+  with_items:
+    - 'shopt -s histappend'
+    - 'PROMPT_COMMAND="history -a"'
+    - 'shopt -s cdspell'
+    - 'export HISTCONTROL="ignoredups"'
+    - 'export HISTIGNORE="ll:ls:[bf]g:exit"'
+    - 'shopt -s cmdhist'
+    - 'export HISTTIMEFORMAT="%h %d %H:%M:%S "'
+
